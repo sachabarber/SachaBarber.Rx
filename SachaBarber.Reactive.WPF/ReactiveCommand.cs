@@ -68,13 +68,6 @@ namespace SachaBarber.Reactive.WPF
         {
             canExecuteObsPred = this.canExecuteObsPred.CombineLatest(predicate, (a, b) => a && b).DistinctUntilChanged();
             SetupSubscriptions();
-
-            //this fires when the HasStuff 2nd predicate changes value, but the overall CombinLatest doesn't fire
-            predicate.Subscribe(x =>
-            {
-                bool hasStuff = x;
-            });
-
         }
 
         bool ICommand.CanExecute(object parameter)
