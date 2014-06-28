@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SachaBarber.Reactive", "SachaBarber.Rx\SachaBarber.Reactive.csproj", "{D99C7719-B7E2-46B9-BB5D-C17EE36D9D23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SachaBarber.Reactice.Test", "SachaBarber.Reactice.Test\SachaBarber.Reactice.Test.csproj", "{59167011-BBD5-41D7-8CD7-EDACEFFD1E7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SachaBarber.Reactive.WPF", "SachaBarber.Reactive.WPF\SachaBarber.Reactive.WPF.csproj", "{55519172-C36A-484B-8C4D-C02F6B780A9C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D99C7719-B7E2-46B9-BB5D-C17EE36D9D23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D99C7719-B7E2-46B9-BB5D-C17EE36D9D23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D99C7719-B7E2-46B9-BB5D-C17EE36D9D23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D99C7719-B7E2-46B9-BB5D-C17EE36D9D23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59167011-BBD5-41D7-8CD7-EDACEFFD1E7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59167011-BBD5-41D7-8CD7-EDACEFFD1E7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59167011-BBD5-41D7-8CD7-EDACEFFD1E7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59167011-BBD5-41D7-8CD7-EDACEFFD1E7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55519172-C36A-484B-8C4D-C02F6B780A9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55519172-C36A-484B-8C4D-C02F6B780A9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55519172-C36A-484B-8C4D-C02F6B780A9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55519172-C36A-484B-8C4D-C02F6B780A9C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
