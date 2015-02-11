@@ -162,6 +162,15 @@ namespace SachaBarber.Reactive
 
 
 
+        public static void Dump<T>(this IObservable<T> source, string name)
+        {
+            source.Subscribe(
+            i => Console.WriteLine("{0}-->{1}", name, i),
+            ex => Console.WriteLine("{0} failed-->{1}", name, ex.Message),
+            () => Console.WriteLine("{0} completed", name));
+        }
+
+
         public static IObservable<Unit> AsUnit<TValue>(this IObservable<TValue> source)
         {
             return source.Select(x => new Unit());
@@ -169,11 +178,11 @@ namespace SachaBarber.Reactive
 
 
      
-        public static IObservable<TItem> ObserveWeakly<TItem>(this IObservable<TItem> collection)
+        public static IObservable<TItem> ObserveWeakly<TItem>(this IObservable<TItem> source)
         {
             return Observable.Create<TItem>(obs =>
             {
-                var weakSubscription = new WeakSubscription<TItem>(collection, obs);
+                var weakSubscription = new WeakSubscription<TItem>(source, obs);
                 return () =>
                 {
                     weakSubscription.Dispose();
@@ -186,6 +195,7 @@ namespace SachaBarber.Reactive
         {
             if (propertyName == null && fireCurrentValue)
                 throw new InvalidOperationException("You need to specify a propertyName if you want to fire the current value of your property");
+         
             return Observable.Create<ItemPropertyChangedEvent<TItem>>(obs =>
             {
                 Dictionary<PropertyInfo, object> oldValues = new Dictionary<PropertyInfo, object>();
