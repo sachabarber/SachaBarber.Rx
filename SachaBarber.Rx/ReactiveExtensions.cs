@@ -161,6 +161,53 @@ namespace SachaBarber.Reactive
         public static readonly Func<int, TimeSpan> ExponentialBackoff = n => TimeSpan.FromSeconds(Math.Pow(n, 2));
 
 
+public static IObservable<T> OnSubscribe<T>(this IObservable<T> source, Action OnSubscribeAction)
+        {
+            return Observable.Create<T>(
+               observer =>
+                   {
+                       if (OnSubscribeAction != null)
+                       {
+                           try
+                           {
+                               OnSubscribeAction();
+                           }
+                           catch (Exception e)
+                           {
+                               Console.WriteLine(e);
+                           }
+                       }
+                       source.Subscribe(observer);
+                       return Disposable.Empty;
+                   }
+           );
+        }
+
+
+        public static IObservable<T> OnDispose<T>(this IObservable<T> source, Action OnDisposeAction)
+        {
+            return Observable.Create<T>(
+               observer =>
+               {
+                   source.Subscribe(observer);
+                   return Disposable.Create( 
+                       ()=>
+                        {
+                            if (OnDisposeAction != null)
+                            {
+                                try
+                                {
+                                    OnDisposeAction();
+                                }
+                                catch (Exception e)
+                                {
+                                    Console.WriteLine(e);
+                                }
+                            }
+                        });
+               }
+           );
+        }
 
         public static void Dump<T>(this IObservable<T> source, string name)
         {
